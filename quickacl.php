@@ -33,7 +33,8 @@ class plgContentQuickacl extends JPlugin {
 	 */
 	public function onContentPrepare($context, &$article, &$params, $page = 0)
 	{
-		if ( JString::strpos( $article->text, 'qACL' ) === false ) {
+		if ( JString::strpos( $article->text, 'qACL' ) === false 
+			&& JString::strpos( $article->text, 'iACL' ) === false) {
 			return true;
 		}
 		$regex = "#{(?:q|i)ACL.*type=([^\s]+)\s(.*)}(.*){/(?:q|i)ACL}#sU";
