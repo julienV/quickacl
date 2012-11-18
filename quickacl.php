@@ -132,7 +132,7 @@ class plgContentQuickacl extends JPlugin {
 	protected static function isInGroup(JUser $user, array $names)
 	{
 		// check if 'guest'
-		if (in_array("guest", $haystack))
+		if (in_array("guest", $names))
 		{
 			return $user->id > 0 ? false : true;
 		}
