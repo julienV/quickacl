@@ -131,6 +131,11 @@ class plgContentQuickacl extends JPlugin {
 	 */
 	protected static function isInGroup(JUser $user, array $names)
 	{
+		// check if 'guest'
+		if (in_array("guest", $haystack))
+		{
+			return $user->id > 0 ? false : true;
+		}
 		$groups = JAccess::getGroupsByUser($user->id, true);
 		if (!$groups) {
 			return array();
